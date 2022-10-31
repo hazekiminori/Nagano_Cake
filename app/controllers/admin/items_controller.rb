@@ -5,6 +5,7 @@ class Admin::ItemsController < ApplicationController
   end
   
   def index
+    @items = Item.page(params[:])
   end
   
   def show
