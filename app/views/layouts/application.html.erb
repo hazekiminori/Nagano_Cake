@@ -14,9 +14,9 @@
     <header>
       <span>LOGO</span>
         <ul>
-          <% if user_signed_in? %>
+          <% if customer_signed_in? %>
           <li>
-        　   <%= link_to %>
+        　   <%= link_to do %>
         　   マイページ
         　   <% end %>
         　</li>
@@ -63,6 +63,8 @@
         　   ログイン
         　   <% end %>
         　</li>
+        　
+        　<% end %>
         　
         </ul>
           
