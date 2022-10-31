@@ -1,0 +1,19 @@
+  <h1>商品一覧</h1>
+  
+    商品ID
+    商品名
+    税抜価格
+    ジャンル
+    ステータス
+  
+    <% @items.each do |item| %>
+    
+    <%= アイテムのID %>
+    <%= item.name %>
+    <%= item.price %>
+    <%= item.genre %>
+    <%= item.state %>
+    
+    <% end %>
+    
+    ページ
