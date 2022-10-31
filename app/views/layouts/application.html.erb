@@ -11,6 +11,68 @@
   </head>
 
   <body>
+    <header>
+      <span>LOGO</span>
+        <ul>
+          <% if user_signed_in? %>
+          <li>
+        　   <%= link_to %>
+        　   マイページ
+        　   <% end %>
+        　</li>
+        　
+        　<li>
+        　   <%= link_to '/items' do %>
+        　   商品一覧
+        　   <% end %>
+        　</li>
+        　
+        　<li>
+        　   <%= link_to '/cart_items' do %>
+        　   カート
+        　   <% end %>
+        　</li>
+        　
+        　<li>
+        　   <%= link_to '/customer/sign_out' do %>
+        　   ログアウト
+        　   <% end %>
+        　</li>
+         
+        　<% else %>
+        　<li>
+            <%= link_to about_path do %>
+            About
+            <% end %>
+          </li>
+          
+          <li>
+            <%= link_to '/items' do %>
+            商品一覧
+            <% end %>
+          </li>
+          
+          <li>
+            <%= link_to '/customers/sign_up' do %>
+            新規登録
+            <% end %>
+          </li>
+          
+        　<li>
+        　   <%= link_to '/customers/sign_in' do %>
+        　   ログイン
+        　   <% end %>
+        　</li>
+        　
+        </ul>
+          
+          
+    </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer>
+      
+    </footer>
   </body>
 </html>
