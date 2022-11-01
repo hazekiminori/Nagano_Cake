@@ -1,0 +1,11 @@
+<h1>注文履歴一覧</h1>
+
+<h3>購入日時</h3>
+<h3>購入者</h3>
+<h3>注文個数</h3>
+
+<% @orders.each do |order| %>
+
+<%= order.日時 %>
+<%= order.name %>
+<%= order.個数 %>

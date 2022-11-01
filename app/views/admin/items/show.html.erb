@@ -1,0 +1,20 @@
+  <h1>商品詳細</h1>
+  
+  <%= image_tag @item.get_image %>
+  
+  <h3>商品名</h3>
+  <%= @item.name %>
+  
+  <h3>商品説明</h3>
+  <%= @item.introduction %>
+  
+  <h3>ジャンル</h3>
+  <%= @item.genre %>
+  
+  <h3>税込価格（税抜価格）</h3>
+  <%= @item.price %>
+  
+  <h3>販売ステータス</h3>
+  <%= @item.state %>
+  
+  <%= link_to "編集する", '/admin/items/:id/edit' %>
