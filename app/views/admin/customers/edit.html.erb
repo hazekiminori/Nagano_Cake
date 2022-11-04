@@ -1,46 +1,67 @@
-  <h1>＜名前＞さんの会員情報編集</h1>
+
+  <h1><%= current_user.name %>さんの会員情報編集</h1>
+    <%= form_with model: @customer do |f| %>
     
     <table>
       <tr>
         <th>会員ID</th>
-        <td></td>
+        <td><%= customer.id %></td>
       </tr>
 
       <tr>
-        <th>氏名</th>
-        <td></td>
-        <td></td>
+        <th>
+          <label for="inputLastName">氏名</label>
+        </th>
+        <td><%= f.text_field :last_name, autofocus: true, id:"inputLastName",placeholder: @customer.last_name %></td>
+        <td><%= f.text_field :first_name, autofocus: true, id:"inputFirstName", placeholder: @customer.first_name %></td>
       </tr>
       
       <tr>
         <th>フリガナ</th>
-        <td></td>
-        <td></td>
+        <td><%= f.text_field :last_name_kana, autofocus: true, id:"inputLastNameKana", placeholder: @customer.last_name_kana %></td>
+        <td><%= f.text_field :first_name_kana, autofocus: true, id:"inputFirstNameKana", placeholder: @customer.first_name_kana %></td>
       </tr>
       
       <tr>
-        <th>郵便番号</th>
-        <td></td>
+        <th>
+          <label for="inputPostalCode">郵便番号</label>
+        </th>
+        <td><%= f.number_field :postal_code, autofocus: true, id:"inputPostalCode", placeholder: @customer.postal_code %></td>
       </tr>
       
       <tr>
-        <th>住所</th>
-        <td></td>
+        <th>
+          <label for="inputAddress">住所</label>
+        </th>
+        <td><%= f.text_area :address, autofocus: true, id:"inputAddress", placeholder: @customer.address %></td>
       </tr>
       
       <tr>
-        <th>電話番号</th>
-        <td></td>
+        <th>
+          <label for="inputTelephoneNumber">電話番号</label>
+        </th>
+        <td><%= f.number_field :telephone_number, autofocus: true, id:"inputTelephoneNumber", placeholder: @customer.telephone_number %></td>
       </tr>
       
       <tr>
-        <th>メールアドレス</th>
-        <td></td>
+        <th>
+          <label for="inputEmail">メールアドレス</label>
+        </th>
+        <td><%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder: @customer.email %></td>
       </tr>
       
       <tr>
         <th>会員ステータス</th>
         <td></td>
       </tr>
+      
+      <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inline" id="inlineRadio1" value="option1">
+  <label class="form-check-label" for="inlineRadio1">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  <label class="form-check-label" for="inlineRadio2">2</label>
+</div>
 
     </table>
