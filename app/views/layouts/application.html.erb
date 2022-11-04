@@ -8,86 +8,90 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
-
   <body>
     <header>
-        <nav class="navbar navbar-expand-sm  mt-3 mb-3">
-        <button class="navbar-toggler" 
-                type="button" 
-                data-toggle="collapse" 
-                data-target="#navbarNav4"
-                aria-controls="navbarNav4" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
- 
-      <span>LOGO</span>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar_nav">
+      <nav class="navbar navbar-expand-sm  mt-3 mb-3">
+        <div class = "container">
+          <span>LOGO</span>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <ul class="navbar_nav list-unstyled list-inline ml-auto">
           <% if customer_signed_in? %>
-          <li class="nav-item">
-        　   <%= link_to my_page_path, class: "btn-outline-secondary" do %>
+          <li>
+        　   <%= link_to my_page_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   マイページ
         　   <% end %>
         　</li>
-        　
-        　<li class="nav-item">
-        　   <%= link_to items_path, class: "btn-outline-secondary" do %>
+
+        　<li>
+        　   <%= link_to items_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   商品一覧
         　   <% end %>
         　</li>
-        　
-        　<li class="nav-item">
-        　   <%= link_to cart_items_path, class: "btn-outline-secondary" do %>
+
+        　<li>
+        　   <%= link_to cart_items_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   カート
         　   <% end %>
         　</li>
-        　
-        　<li class="nav-item">
-        　   <%= link_to destroy_customer_session_path, class: "btn-outline-secondary" do %>
+
+        　<li>
+        　   <%= link_to destroy_customer_session_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   ログアウト
         　   <% end %>
         　</li>
-         
+
         　<% else %>
-        　<li class="nav-item">
-            <%= link_to about_path, class: "btn-outline-secondary" do %>
+        　<li>
+            <%= link_to about_path, class: "btn-outline-secondary btn btn-primary" do %>
             About
             <% end %>
           </li>
-          
-          <li class="nav-item">
-            <%= link_to items_path, class: "btn-outline-secondary" do %>
+
+          <li>
+            <%= link_to items_path, class: "btn-outline-secondary btn btn-primary" do %>
             商品一覧
             <% end %>
           </li>
-          
-          <li class="nav-item">
-            <%= link_to new_customer_registration_path, class: "btn-outline-secondary" do %>
+
+          <li>
+            <%= link_to new_customer_registration_path, class: "btn-outline-secondary btn btn-primary" do %>
             新規登録
             <% end %>
           </li>
-          
-        　<li class="nav-item">
-        　   <%= link_to new_customer_session_path, class: "btn-outline-secondary" do %>
+
+        　<li>
+        　   <%= link_to new_customer_session_path, class: "btn-outline-secondar btn btn-primaryy" do %>
         　   ログイン
         　   <% end %>
         　</li>
-        　
+
         　<% end %>
-        　
+
+        　<form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </ul>
-      </div>   
-    </nav>     
+        </div>
+      </div>
+    </nav>
     </header>
     <main>
     <%= yield %>
     </main>
     <footer>
-      
     </footer>
   </body>
 </html>
