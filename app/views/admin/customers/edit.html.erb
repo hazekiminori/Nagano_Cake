@@ -1,11 +1,11 @@
 
-  <h1><%= current_user.name %>さんの会員情報編集</h1>
+  <h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
     <%= form_with model: @customer do |f| %>
     
     <table>
       <tr>
         <th>会員ID</th>
-        <td><%= customer.id %></td>
+        <td><%= @customer.id %></td>
       </tr>
 
       <tr>
