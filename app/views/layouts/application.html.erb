@@ -47,7 +47,7 @@
         　</li>
 
         　<li>
-        　   <%= link_to destroy_cutomers_session_path, class: "btn-outline-secondary btn btn-primary" do %>
+        　   <%= link_to destroy_customer_session_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   ログアウト
         　   <% end %>
         　</li>
@@ -57,29 +57,35 @@
         　<li>
         　<%= link_to admin_items_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   商品一覧
+        　<% end %>
           </li>
 
           <li>
             <%= link_to admin_customers_path, class: "btn-outline-secondary btn btn-primary" do %>
             会員一覧
+            <% end %>
           </li>
 
           <li>
-            <%= link_to, class: "btn-outline-secondary btn btn-primary" do %>
+            <%= link_to admin_order_path, class: "btn-outline-secondary btn btn-primary" do %>
             注文履歴一覧
+            <% end %>
           </li>
 
           <li>
             <%= link_to admin_genres_path, class: "btn-outline-secondary btn btn-primary" do %>
             ジャンル一覧
+            <% end %>
           </li>
 
           <li>
             <%= link_to destroy_admin_session_path,  class: "btn-outline-secondary btn btn-primary" do %>
             ログアウト
+            <% end %>
           </li>
 
         　<% else %>
+
         　<li>
             <%= link_to about_path, class: "btn-outline-secondary btn btn-primary" do %>
             About

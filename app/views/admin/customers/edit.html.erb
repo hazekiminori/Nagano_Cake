@@ -12,8 +12,12 @@
         <th>
           <label for="inputLastName">氏名</label>
         </th>
+        <form>
+          <div class ="form-group">
         <td><%= f.text_field :last_name, autofocus: true, id:"inputLastName",placeholder: @customer.last_name %></td>
         <td><%= f.text_field :first_name, autofocus: true, id:"inputFirstName", placeholder: @customer.first_name %></td>
+          </div>
+        </form>
       </tr>
       
       <tr>
@@ -52,16 +56,17 @@
       
       <tr>
         <th>会員ステータス</th>
-        <td></td>
-      </tr>
-      
-      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inline" id="inlineRadio1" value="option1">
-  <label class="form-check-label" for="inlineRadio1">1</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-  <label class="form-check-label" for="inlineRadio2">2</label>
-</div>
-
+        <td>
+      <div class="form-group">
+      <div class="radio-inline">
+        <input type="radio" value="1" name="customer_states" id="validity">
+          <label for="man">有効</label>
+      </div>
+      <div class="radio-inline">
+        <input type="radio" value="2" name="customer_states" id="invalid">
+        <label for="woman">無効</label>
+      </div>
+    </div>
+       </td>
+       </tr>
     </table>

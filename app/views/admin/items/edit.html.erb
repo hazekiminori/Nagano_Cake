@@ -11,6 +11,16 @@
 <label for="inputPrice">税抜価格</label>
 <%= f.number_field :price, autofocus: true, id:"inputPrice", placeholder: "税抜価格" %>
 
-販売ステータス2択
+<div class="form-group">
+      <p class="control-label"><b>販売ステータス</b></p>
+      <div class="radio">
+        <input type="radio-inline" value="1" name="is_active" id="active">
+          <label for="man">販売中</label>
+      </div>
+      <div class="radio">
+        <input type="radio-inline" value="2" name="is_active" id="passive">
+        <label for="woman">販売停止中</label>
+      </div>
+    </div>
 
 <%= f.submit "変更を保存" %>
