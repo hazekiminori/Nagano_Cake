@@ -1,7 +1,10 @@
+ <div class="container">
   <h1>商品一覧</h1>
-    
+ </div>
+
+  <div class="container">
     <table class= "table">
-      <thead>
+      <thead class= "thead-light">
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -10,7 +13,7 @@
           <th>ステータス</th>
         </tr>
       </thead>
-      
+
       <tbody>
       <% @items.each do |item| %>
         <tr>
@@ -23,5 +26,6 @@
         </tr>
       </tbody>
     </table>
-    
-    <%= paginate post_images %>
+  </div>
+
+<%= paginate itemes %>

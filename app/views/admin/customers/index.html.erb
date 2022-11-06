@@ -1,4 +1,7 @@
-  <h1>会員一覧</h1>
+<div class="container">
+  <h2>会員一覧</h2>
+  </div>
+   <div class="container">
     <table>
       <thead>
         <tr>
@@ -12,12 +15,10 @@
         <% @customers.each do |customer| %>
         <tr>
           <td><%= customer.id %></td>
-          <td><%= customer.name %></td>
           <td><%= customer.email %></td>
-          <td><%= customer.state %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    
-     <%= paginate post_images %>
+  </div>
+<%= paginate customers %>
