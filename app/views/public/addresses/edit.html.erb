@@ -1,0 +1,22 @@
+<%= form_with model: @address do |f| %>
+
+<div class="container">
+  <table>
+    <tbody>
+      <tr>
+        <td>郵便番号（ハイフンなし）</td>
+        <td><%= f.number_field :postal_code %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= f.text_area :address %></td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= f.submit '変更内容を保存' %>

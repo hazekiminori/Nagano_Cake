@@ -1,6 +1,7 @@
-  <h1>商品新規登録</h1>
+  <h1><mark>商品新規登録</mark></h1>
 
-    <%= form_with model: item.new do |f| %>
+    <div class="container">
+    <%= form_with model: @item do |f| %>
       <h4>商品画像</h4>
       <%= f.file_field :image, accept: "image/*" %>
 
@@ -13,10 +14,12 @@
       <h4>ジャンル</h4>
 
       <h4>税抜価格</h4>
-      <%= f.number_field :price
+      <%= f.number_field :price %>
 
       <h4>販売ステータス</h4>
 
     <%= f.submit "新規登録" %>
 
     <% end %>
+    
+    </div>
