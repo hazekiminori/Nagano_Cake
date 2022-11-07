@@ -1,0 +1,16 @@
+<div class="container">
+  <%= image_tag @item.get_image %>
+</div>
+
+<div class="container">
+  <%= @item.name %>
+  <%= @item.introduction %>
+  <%= @item.price %>
+  <select class="form-select" aria-label="Default select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <button type="button" class="btn btn-success">Success</button>
+</div>

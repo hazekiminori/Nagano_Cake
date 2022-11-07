@@ -2,4 +2,10 @@
   <h1>商品一覧（全まるまる件）</h1>
 </div>
 
-<
+<% @items.each do |item| %>
+<div class="container">
+  <%= image_tag item.get_image %>
+  <%= item.name %>
+  <%= item.price %>
+</div>
+<% end %>
