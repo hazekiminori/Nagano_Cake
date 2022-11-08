@@ -1,20 +1,33 @@
-  <h1>商品詳細</h1>
-  
+
+  <div class="container">
+    
+  <h3>商品詳細</h3>
   <%= image_tag @item.get_image %>
-  
-  <h3>商品名</h3>
-  <%= @item.name %>
-  
-  <h3>商品説明</h3>
-  <%= @item.introduction %>
-  
-  <h3>ジャンル</h3>
-  <%= @item.genre %>
-  
-  <h3>税込価格（税抜価格）</h3>
-  <%= @item.price %>
-  
-  <h3>販売ステータス</h3>
-  <%= @item.state %>
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <td>商品名</td>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <td>商品説明</td>
+        <td><%= @item.introduction %></td>
+      </tr>
+      <tr>
+        <td>ジャンル</td>
+        <td><%= @item.genre %></td>
+      </tr>
+      <tr>
+        <td>税込価格（税抜価格）</td>
+        <td><%= @item.price %></td>
+      </tr>
+      <tr>
+        <td>販売ステータス</td>
+        <td><%= @item.state %></td>
+      </tr>
+    </tbody>
+  </table>
   
   <%= link_to "編集する", edit_admin_item_path %>
+  
+  </div>
