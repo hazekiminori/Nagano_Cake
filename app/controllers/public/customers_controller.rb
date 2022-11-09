@@ -1,15 +1,15 @@
 class Public::CustomersController < ApplicationController
-  
+
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
 
     if @customer.update
       redirect_to my_page_path
@@ -17,7 +17,7 @@ class Public::CustomersController < ApplicationController
       render :edit
     end
   end
-  
+
   def quit
   end
 

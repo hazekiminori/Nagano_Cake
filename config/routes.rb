@@ -34,8 +34,12 @@ Rails.application.routes.draw do
 
   scope module: :public do
   resources :items, only: [:index, :show]
-  resources :customers, only: [:edit, :update, :quit, :withdrawal]
-  get '/customers/my_page' => 'public/customers#show', as:'my_page'
+  get '/customers/my_page' => 'customers#show', as:'my_page'
+  get '/customers/infomation/edit' => 'customers#edit', as:'infomation'
+  patch '/customers/infomation' => 'customers#update'
+  get '/customers/quit' => 'customers#quit'
+  patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
+
 
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
 
