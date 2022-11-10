@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get '/customers/my_page' => 'customers#show', as:'my_page'
   get '/customers/infomation/edit' => 'customers#edit', as:'infomation'
   patch '/customers/infomation' => 'customers#update'
-  get '/customers/quit' => 'customers#quit'
+  get '/customers/quit' => 'customers#quit', as:'quit'
   patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
 
   get '/cart_items' => 'cart_items#index', as:'cart_items'
