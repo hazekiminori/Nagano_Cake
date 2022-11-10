@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-  resources :items, only: [:index, :show]
+  resource :items, only: [:index, :show]
   get '/customers/my_page' => 'customers#show', as:'my_page'
   get '/customers/infomation/edit' => 'customers#edit', as:'infomation'
   patch '/customers/infomation' => 'customers#update'
@@ -41,11 +41,14 @@ Rails.application.routes.draw do
   patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
 
 
-  resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+  resource :cart_items, only: [:index, :update, :destroy, :create]
+  delete '/cart_items/destroy_all' => 'order_items#destroy_all', as:'destroy_all'
 
-  resources :orders, only: [:new, :confirm, :thanks, :create, :index, :show]
+  resource :orders, only: [:new, :create, :index, :show]
+  get '/orders/thanks' => 'orders#thanks', as:'thanks'
+  post '/orders/confirm' => 'orders#confirm', as:'confirm'
 
-  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  resource :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
