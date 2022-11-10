@@ -33,18 +33,23 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-  resource :items, only: [:index, :show]
+  get '/items' => 'items#index', as:'items'
+  get '/items/:id' => 'items#show'
   get '/customers/my_page' => 'customers#show', as:'my_page'
   get '/customers/infomation/edit' => 'customers#edit', as:'infomation'
   patch '/customers/infomation' => 'customers#update'
   get '/customers/quit' => 'customers#quit'
   patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
 
-
-  resource :cart_items, only: [:index, :update, :destroy, :create]
+  get '/cart_items' => 'cart_items#index', as:'cart_items'
+  patch '/cart_items/:id' => 'cart_items#update'
+  delete '/cart_items/:id' => 'cart_items#destroy'
+  post '/cart_items' => 'cart_items#create'
   delete '/cart_items/destroy_all' => 'order_items#destroy_all', as:'destroy_all'
 
-  resource :orders, only: [:new, :create, :index, :show]
+  resource :orders, only: [:new, :show]
+  patch '/orders' => 'orders#create'
+  get '/orders' => 'orders#index'
   get '/orders/thanks' => 'orders#thanks', as:'thanks'
   post '/orders/confirm' => 'orders#confirm', as:'confirm'
 

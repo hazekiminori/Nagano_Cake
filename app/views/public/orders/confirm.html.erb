@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>注文情報確認</h1>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+</table>
+<tbody>
+  <tr>
+    <td><%= @cart_item.name %></td>
+    <td><%= %></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+
+<table>
+  <tbody>
+    <tr>
+      <td>送料</td>
+      <td>商品合計</td>
+      <td>請求金額</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>支払い方法</h3>
+<%= @order.payment_method %>
+
+<h3>お届け先</h3>
+<%= @order.address %>
+
+<%= link_to "注文を確定する", thanks_path, class :"btn btn-success" %>
