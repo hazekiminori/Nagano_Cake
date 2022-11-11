@@ -3,10 +3,9 @@
 </div>
 
 <div class="container">
-<%= link_to "カートを空にする", destroy_all_path, class:"btn btn-danger" %>
+<%= link_to "カートを空にする", destroy_all_path, method: :delete, class:"btn btn-danger" %>
 </div>
 
- <% @cart_item.each do |cart_item| %>
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
@@ -17,11 +16,14 @@
     </tr>
   </thead>
   <tbody>
+    <% @cart_item.each do |cart_item| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.with_tax_price %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.subtotal %></td>
+      <% @合計金額 +=  cart_item.subtotal %>
     </tr>
+    <% end %>
   </tbody>
 </table>
-<% end %>
