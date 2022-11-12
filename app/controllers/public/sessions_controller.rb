@@ -2,7 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  bedore_action :customer_state, only: [:create]
+  #before_action :customer_state, only: [:create]
   
   def adter_sign_out_path_for(resource)
     new_customer_session_path

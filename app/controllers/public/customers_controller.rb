@@ -22,6 +22,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdrawal
+    @customer = current_customer
   end
 
 

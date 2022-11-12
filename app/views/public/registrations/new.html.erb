@@ -5,83 +5,49 @@
 <div class="container">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <%= f.label :last_name, "（姓）" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :first_name, "（名）" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :last_name_kana, "（セイ）" %><br />
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+  </div>
 
-　<form class="row g-3">
-　  <div class="row">
-  <div class="col-md-6">
-    <label for="inputLastName" class="col-sm-2 col-form-label">(姓)</label>
-      <div class="col-sm-10">
-      <input type="last_name" class="form-control" id="inputLastName">
-      </div>
+  <div class="field">
+    <%= f.label :first_name_kana, "（メイ）" %><br />
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
   </div>
-  <div class="col-md-6">
-    <label for="inputFirstName" class="col-sm-2 col-form-labe">(名)</label>
-      <div class="col-sm-10">
-      <input type="first_name" class="form-control" id="inputFirstName">
-      </div>
-  </div>
-  </div>
-  
-  <div class="row">
-  <div class="col-md-6">
-    <label for="inputLastNameKana" class="col-sm-2 col-form-label">(セイ)</label>
-    <div class="col-sm-10">
-      <input type="last_name_kana" class="form-control" id="inputLastNameKana">
-    </div>
-  </div>
-  <div class="col-md-6">
-    <label for="inputFirstNameKana" class="col-sm-2 col-form-label">(メイ)</label>
-    <div class="col-sm-10">
-      <input type="first_name_kana" class="form-control" id="inputFirstNameKana">
-    </div>
-  </div>
-  </div>
-  
-  <div class="col-md-12">
-    <label for="inputEmail" class="col-sm-2 col-form-label">メールアドレス</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail">
-    </div>
-  </div>
-  <div class="col-md-12">
-    <label for="inputPostalCode" class="col-sm-2 col-form-label">郵便番号(ハイフンなし)</label>
-    <div class="col-sm-10">
-      <input type="postal_code" class="form-control" id="inputPostalCode">
-    </div>
-  </div>
-  <div class="col-md-12">
-    <label for="inputAdress" class="col-sm-2 col-form-label">住所</label>
-    <div class="col-sm-10">
-      <input type="address" class="form-control" id="inputAddress">
-    </div>
-  </div>
-  <div class="col-md-12">
-    <label for="inputTelephoneNumber" class="col-sm-2 col-form-label">電話番号(ハイフンなし)</label>
-    <div class="col-sm-10">
-      <input type="telephone_number" class="form-control" id="inputTelephoneNumber">
-    </div>
-  </div>
-  <div class="col-md-12">
-    <label for="inputPassWord" class="col-sm-2 col-form-label">パスワード(６文字以上)</label>
-    <div class="col-sm-10">
-      <input type="last_name_kana" class="form-control" id="inputLastNameKana">
-    </div>
-  </div>
-  <div class="col-12">
-    <label for="inputPassWord" class="col-sm-2 col-form-label">パスワード</label>
-    <div class="col-sm-10">
-      <input type="last_name_kana" class="form-control" id="inputLastNameKana">
-    </div>
-  </div>
-</form>
 　
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号（ハイフンなし）" %><br />
+    <%= f.number_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :telephone_number, "電話番号（ハイフンなし）" %><br />
+    <%= f.number_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password, "パスワード（６文字以上）" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -89,11 +55,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="actions">。
     <%= f.submit "新規登録",class:"btn btn-primary" %>
   </div>
 <% end %>
@@ -101,3 +67,5 @@
 <%= render "public/shared/links" %>
 
 </div>
+
+
