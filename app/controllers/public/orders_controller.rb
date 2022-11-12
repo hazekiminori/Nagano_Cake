@@ -5,7 +5,12 @@ class Public::OrdersController < ApplicationController
   end
   
   def confirm
-    @order = current_customer
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
+    binding.pry 
   end
   
   def thanks
@@ -21,5 +26,12 @@ class Public::OrdersController < ApplicationController
   
   def show
   end
+  
+  private
+  
+  def order_params
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+  end
+
 
 end

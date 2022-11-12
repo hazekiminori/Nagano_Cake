@@ -3,45 +3,37 @@
 </div>
 
 <div class="container">
-
+<%= form_with model: @order do |f| %>
 <h3>支払い方法</h3>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
-    クレジットカード
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    銀行振込
-  </label>
-</div>
+<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+
+<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+
 
 <h3>お届け先</h3>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  <label class="form-check-label" for="flexRadioDefault1">
+  <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
     ご自身の住所
-    <%= @order.postal_code %>
-    <%= @order.address %>
-  </label>
-</div>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+
 <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
   <label class="form-check-label" for="flexRadioDefault2">
     登録済み住所から選択
   </label>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
 </div>
 <div class="form-check">
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
   <label class="form-check-label" for="flexRadioDefault1">
     新しいお届け先
+    <%= f.number_field
   </label>
 </div>
 
 </div>
-
+<% end %>
 <div class="container">
 <%= link_to "確認画面へ進む", confirm_path, class:"btn btn-primary" %>
 </div>
