@@ -6,9 +6,10 @@ class Public::CartItemsController < ApplicationController
 
   def create
     binding.pry
-
-    cart_item = cart_item.new(cart_item_params)
-    cart_item.save
+   
+    @cart_item = Cart_item.new(cart_item_params)
+    @cart_item.customer_id = current_customer.id
+    @cart_item.save
     redirect_to cart_items_path
   end
 
