@@ -7,7 +7,7 @@
 </div>
 
 <% @cart_item.each do |cart_item| %>
-
+<% @total +=  @cart_item.subtotal %>
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr>
@@ -25,11 +25,9 @@
               <td><%= cart_item.amount %><%= f.submit "変更する", class:"btn btn-success" %></td>
               <td><%= cart_item.subtotal %></td>
               <td><%= link_to "削除する", cart_items_path(cart_item.id), method: :delete, class:"btn btn-danger" %></td>
-
             </tr>
           </tbody>
         </table>
-<% end %>
 
 <%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %>
 
@@ -37,7 +35,9 @@
   <tbody>
     <tr>
       <td>合計金額</td>
-    　<td><% @合計金額 +=  @cart_item.subtotal %></td>
+    　<td>¥<%= @total %></td>
     </tr>
   </tbody>
 </table>
+
+<% end %>
