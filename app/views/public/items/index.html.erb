@@ -1,11 +1,13 @@
+
 <div class="container">
-  <h1>商品一覧（全まるまる件）</h1>
-</div>
+  <h1>商品一覧（全<%= Item.count %>件）</h1>
 
 <% @items.each do |item| %>
-<div class="container">
+<div class="row">
+<div class="col">
   <%= image_tag item.get_image %>
   <%= item.name %>
   <%= item.price %>
+</div>
 </div>
 <% end %>

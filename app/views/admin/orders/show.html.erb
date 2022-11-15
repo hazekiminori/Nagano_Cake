@@ -13,14 +13,13 @@
           <th>注文ステータス</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
-          <td><%= @customer.name %></td>
+          <td><%= @customer.last_name %><%= @customer.first_name %></td>
           <td><%= @order.created_at %></td>
           <td><%= @order.address %></td>
           <td><%= @order.payment_method %></td>
-          <td><%= @order.state %></td>
+          <td><%= @order.states %></td>
         </tr>
       </tbody>
     </table>
