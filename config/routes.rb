@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/homes#top'
 
   namespace :admin do
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resource :items, only: [:new, :create]
+    get '/items' => 'items#index'
+    resources :items, only: [:show, :edit, :update]
   end
 
   namespace :admin do

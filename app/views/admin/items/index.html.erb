@@ -13,19 +13,17 @@
           <th>ステータス</th>
         </tr>
       </thead>
-
       <tbody>
-      <% @items.each do |item| %>
+        <% @items.each do |item| %>
         <tr>
-          <td><%= item_id %></td>
+          <td><%= item.item_id %></td>
           <td><%= item.name %></td>
           <td><%= item.price %></td>
           <td><%= item.genre %></td>
           <td><%= item.state %></td>
-      <% end %>
+        <% end %>
         </tr>
       </tbody>
     </table>
   </div>
 
-<%= paginate @items %>
