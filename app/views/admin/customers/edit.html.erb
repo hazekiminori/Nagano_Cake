@@ -1,6 +1,7 @@
 
-  <h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
-    <%= form_with model: @customer do |f| %>
+  <div class="container">
+  <h1><%= @customer.full_name %>さんの会員情報編集</h1>
+    <%= form_with model: @customer, url: admin_customer_path do |f| %>
     
     <table>
       <tr>
@@ -57,20 +58,14 @@
       <tr>
         <th>会員ステータス</th>
         <td>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-            有効
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
-            無効
-            </label>
-          </div>
+          <%= f.radio_button :is_deleted, "false" %>
+          <%= f.label :is_deleted, "有効", value: false %>
+          <%= f.radio_button :is_deleted, "true" %>
+          <%= f.label :is_deleted, "退会", value: true %>
         </td>
       </tr>
     </table>
-    
+    <%= f.submit "変更を保存", class:"btn btn-success" %>
+    <% end %>
+    </div>
     

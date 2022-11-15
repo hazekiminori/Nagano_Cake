@@ -1,6 +1,8 @@
-<h1><%= current_user.name %>さんの会員詳細</h1>
+<div class="container">
+<h1><%= @customer.full_name %>さんの会員詳細</h1>
 
 <table class="table table-borderless">
+  <tbody>
   <tr>
     <td>会員ID</td>
     <td><%= @customer.id %></td>
@@ -31,7 +33,18 @@
   </tr>
   <tr>
     <td>会員ステータス</td>
+    <td>
+      <% if @customer.is_deleted != true %>
+       <p class="text-success">有効</p>
+      <% else %>
+        <p class="text-secondary">無効</p>
+      <% end %>
+    </td>
   </tr>
+  </tbody>
 </table>
+  <%= link_to "編集する",  edit_admin_customer_path, class:"btn btn-success" %>
+  <button type="button" class="btn btn-primary">注文一覧を見る</button>
 
- 
+</div>
+
