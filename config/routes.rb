@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   get '/orders/thanks' => 'orders#thanks', as:'thanks'
   post '/orders/confirm' => 'orders#confirm', as:'confirm'
 
-  resource :addresses, only: [:create]
+  post '/addresses' => 'addresses#create'
   get '/addresses' => 'addresses#index'
   get '/addresses/:id/edit' => 'addresses#edit'
   patch '/addresses/:id' => 'addresses#update'
