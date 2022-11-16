@@ -1,22 +1,28 @@
-<%= form_with model: @address do |f| %>
+<%= form_with model: @address, url: addresses_path do |f| %>
 
 <div class="container">
   <table>
     <tbody>
       <tr>
-        <td>郵便番号（ハイフンなし）</td>
-        <td><%= f.number_field :postal_code %></td>
+        <td>
+          <label for="inputPostalCode">郵便番号（ハイフンなし）</label>
+         </td>
+        <td><%= f.number_field :postal_code, autofocus: true, id:"inputPostalCode", placeholder:"郵便番号（ハイフンなし）" %></td>
       </tr>
       <tr>
-        <td>住所</td>
-        <td><%= f.text_area :address %></td>
+        <td>
+          <label for="inputAddress">住所</label></td>
+        <td><%= f.text_area :address, autofocus: true, id:"inputAddress", placeholder:"住所" %></td>
       </tr>
       <tr>
-        <td>宛名</td>
-        <td><%= f.text_field :name %></td>
+        <td>
+          <label for="inputName">宛名</label></td>
+        <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"宛名" %></td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<%= f.submit '変更内容を保存' %>
+<%= f.submit '変更内容を保存', class:"btn btn-success" %>
+
+<% end %>

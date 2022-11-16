@@ -27,7 +27,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    
+    @customer = current_customer
+    @cart_items = CartItem.all
   end
 
   private

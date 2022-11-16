@@ -16,7 +16,14 @@
           <td><%= @customer.full_name %></td>
           <td><%= @customer.created_at %></td>
           <td><%= @customer.address %></td>
-          <td><%= @customer.is_deleted %></td>
+          <td></td>
+          <td>
+            <% if @customer.is_deleted !=false %>
+              <p class="text-success">有効</p>
+            <% else  %>
+            　<p class="text-secondary">無効</p>
+            <% end %>
+          </td>
         </tr>
       </tbody>
     </table>
