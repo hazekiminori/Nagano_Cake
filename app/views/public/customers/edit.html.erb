@@ -1,5 +1,5 @@
 <h1>会員情報編集</h1>
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer, url: customers_infomation_path do |f| %>
 <div class="container">
 <table>
   <tbody>
@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td>電話番号</td>
-      <td><%= f.number_field :phone_number, autofocus: true, id:"inputTelePhoneNumber", placeholder:"電話番号" %></td>
+      <td><%= f.number_field :telephone_number, autofocus: true, id:"inputTelePhoneNumber", placeholder:"電話番号" %></td>
     </tr>
     <tr>
       <td>メールアドレス</td>

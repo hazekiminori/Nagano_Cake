@@ -55,7 +55,11 @@ Rails.application.routes.draw do
   get '/orders/thanks' => 'orders#thanks', as:'thanks'
   post '/orders/confirm' => 'orders#confirm', as:'confirm'
 
-  resource :addresses, only: [:index, :edit, :create, :update, :destroy]
+  resource :addresses, only: [:create]
+  get '/addresses' => 'addresses#index'
+  get '/addresses/:id/edit' => 'addresses#edit'
+  patch '/addresses/:id' => 'addresses#update'
+  delete '/addresses/:id' => 'addresses#destroy'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
