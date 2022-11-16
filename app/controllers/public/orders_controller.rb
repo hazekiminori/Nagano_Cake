@@ -27,6 +27,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    
   end
 
   private

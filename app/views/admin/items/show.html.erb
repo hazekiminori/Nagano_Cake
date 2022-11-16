@@ -1,8 +1,8 @@
 
   <div class="container">
-    
+
   <h3>商品詳細</h3>
-  <%= image_tag @item.get_image %>
+  <%= image_tag @item.get_image(100,100) %>
   <table class="table table-borderless">
     <tbody>
       <tr>
@@ -14,20 +14,22 @@
         <td><%= @item.introduction %></td>
       </tr>
       <tr>
-        <td>ジャンル</td>
-        <td><%= @item.genre %></td>
-      </tr>
-      <tr>
         <td>税込価格（税抜価格）</td>
         <td><%= @item.price %></td>
       </tr>
       <tr>
         <td>販売ステータス</td>
-        <td><%= @item.state %></td>
+        <td>
+            <% if @item.is_active == true %>
+            <p class="text-success">販売中</p>
+            <% else %>
+            <p class="text-secondary">販売停止中</p>
+            <% end %>
+        </td>
       </tr>
     </tbody>
   </table>
-  
+
   <%= link_to "編集する", edit_admin_item_path %>
-  
+
   </div>

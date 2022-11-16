@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
   get '/items' => 'items#index', as:'items'
-  get '/items/:id' => 'items#show'
+  get '/items/:id' => 'items#show', as:'items_show'
   get '/customers/my_page' => 'customers#show', as:'my_page'
   get '/customers/infomation/edit' => 'customers#edit', as:'infomation'
   patch '/customers/infomation' => 'customers#update'

@@ -6,16 +6,17 @@
     <table class="table table-bordered">
       <tbody>
         <tr class="table-secondary">
+          <td>注文者</td>
           <td>注文日</td>
           <td>配送先</td>
           <td>支払方法</td>
           <td>ステータス</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= @customer.full_name %></td>
+          <td><%= @customer.created_at %></td>
+          <td><%= @customer.address %></td>
+          <td><%= @customer.is_deleted %></td>
         </tr>
       </tbody>
     </table>

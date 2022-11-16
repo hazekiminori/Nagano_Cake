@@ -1,7 +1,6 @@
  <div class="container">
   <h1>商品一覧</h1>
  </div>
-
   <div class="container">
     <table class= "table">
       <thead class= "thead-light">
@@ -9,20 +8,24 @@
           <th>商品ID</th>
           <th>商品名</th>
           <th>税抜価格</th>
-          <th>ジャンル</th>
           <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
         <% @items.each do |item| %>
         <tr>
-          <td><%= item.item_id %></td>
-          <td><%= item.name %></td>
+          <td><%= item.id %></td>
+          <td><%= link_to item.name, admin_item_path(item.id) %></td>
           <td><%= item.price %></td>
-          <td><%= item.genre %></td>
-          <td><%= item.state %></td>
-        <% end %>
+          <td>
+            <% if item.is_active == true %>
+            <p class="text-success">販売中</p>
+            <% else %>
+            <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
