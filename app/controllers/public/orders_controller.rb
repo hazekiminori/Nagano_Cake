@@ -17,6 +17,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    binding.pry
     @order = Order.new(order_params)
     @order.save
     redirect_to confirm_path

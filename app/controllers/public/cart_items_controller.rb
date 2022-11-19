@@ -5,12 +5,12 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @cart_item = Cart_items.new(cart_item_params)
+    #binding.pry
+    @cart_item = CartItem.new(cart_item_params[:item_id])
     if Item.find_by(item_id: [:cart_item][:item_id])
       cart_item.amount += params[:cart_item][:amount].to_i
     else
-      @cart_item = Cart_item.new(cart_item_params)
+      @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
       @cart_item.save
       redirect_to cart_items_path
@@ -32,7 +32,7 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    prams.require(:cart_item).permit(:item_id, :amount)
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 
 end
