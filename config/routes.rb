@@ -42,12 +42,8 @@ Rails.application.routes.draw do
   patch '/customers/infomation' => 'customers#update'
   get '/customers/quit' => 'customers#quit', as:'quit'
   patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
-
-  get '/cart_items' => 'cart_items#index', as:'cart_items'
-  patch '/cart_items/:id' => 'cart_items#update'
-  delete '/cart_items/:id' => 'cart_items#destroy'
-  post '/cart_items' => 'cart_items#create'
-  delete '/cart_items/destroy_all' => 'order_items#destroy_all', as:'destroy_all'
+  delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+  resources :cart_items
 
   resource :orders, only: [:new, :show]
   patch '/orders' => 'orders#create'
