@@ -1,22 +1,22 @@
+<div class ="container">
 <h1>注文履歴詳細</h1>
-
-
 <h4>注文情報</h4>
-  <div class="container">
     <table class="table table-bordered">
       <tbody>
-        <tr class="table-secondary">
-          <td>注文者</td>
-          <td>注文日</td>
-          <td>配送先</td>
-          <td>支払方法</td>
-          <td>ステータス</td>
+        <tr>
+          <td class="table-secondary">注文日</td>
+          <td><%= @customer.created_at %></td>
         </tr>
         <tr>
-          <td><%= @customer.full_name %></td>
-          <td><%= @customer.created_at %></td>
+          <td class="table-secondary">配送先</td>
           <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">支払方法</td>
           <td></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">ステータス</td>
           <td>
             <% if @customer.is_deleted !=false %>
               <p class="text-success">有効</p>
@@ -27,28 +27,26 @@
         </tr>
       </tbody>
     </table>
-  </div>
 
 <h4>請求情報</h4>
-  <div class="container">
     <table class="table table-bordered">
       <tbody>
-        <tr class="table-secondary">
-          <td>合計金額</td>
-          <td>配送料</td>
-          <td>ご請求額</td>
+        <tr>
+          <td class="table-secondary">合計金額</td>
+          <td><%= @total %></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
+          <td class="table-secondary">配送料</td>
+          <td>800</td>
+        </tr>
+        <tr>
+          <td class="table-secondary">ご請求額</td>
           <td></td>
         </tr>
       </tbody>
     </table>
-  </div>
 
 <h4>注文内容</h4>
-  <div class="container">
     <table class="table table-bordered">
       <thead>
         <tr class="table-secondary">

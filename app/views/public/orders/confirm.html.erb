@@ -13,12 +13,14 @@
   </thead>
 </table>
 <tbody>
+    <% @cart_items.each do |cart_item| %>
   <tr>
-    <td><%= @cart_item.name %></td>
-    <td><%= %></td>
-    <td></td>
-    <td></td>
+    <td><%= cart_item.item.name %></td>
+    <td><%= cart_item.item.price %></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.subtotal %></td>
   </tr>
+    <% end %>
 </tbody>
 
 <table>
@@ -37,9 +39,11 @@
 </table>
 
 <h3>支払い方法</h3>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 
 <h3>お届け先</h3>
+<%= @order.postal_code %>
 <%= @order.address %>
+<%= @order.name %>
 
-<%= link_to "注文を確定する", thanks_path, class :"btn btn-success" %>
+<%= link_to "注文を確定する", thanks_path, class:"btn btn-success" %>
