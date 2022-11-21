@@ -1,9 +1,8 @@
 <div class="container">
   <h1>注文情報確認</h1>
-</div>
 
-<table>
-  <thead>
+<table class = "table">
+  <thead class="thead-secondary">
     <tr>
       <th>商品名</th>
       <th>単価（税込）</th>
@@ -11,28 +10,31 @@
       <th>小計</th>
     </tr>
   </thead>
-</table>
+
 <tbody>
     <% @cart_items.each do |cart_item| %>
   <tr>
     <td><%= cart_item.item.name %></td>
-    <td><%= cart_item.item.price %></td>
+    <td><%= cart_item.item.with_tax_price %></td>
     <td><%= cart_item.amount %></td>
     <td><%= cart_item.subtotal %></td>
   </tr>
     <% end %>
 </tbody>
+</table>
 
-<table>
+<table class="table">
   <tbody>
     <tr>
       <td>送料</td>
-      <td>商品合計</td>
-      <td>請求金額</td>
+      <td>800</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>商品合計</td>
+       <td></td>
+    </tr>
+    <tr>
+      <td>請求金額</td>
       <td></td>
     </tr>
   </tbody>
@@ -47,3 +49,5 @@
 <%= @order.name %>
 
 <%= link_to "注文を確定する", thanks_path, class:"btn btn-success" %>
+
+</div>

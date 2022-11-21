@@ -30,6 +30,7 @@
         <ul class="navbar-nav mr-auto">
 
           <% if customer_signed_in? %>
+          　<p>ようこそ、<%= current_customer.last_name %>さん！</p>
           <li class="nav-item">
         　   <%= link_to my_page_path, class: "btn-outline-secondary btn btn-primary" do %>
         　   マイページ

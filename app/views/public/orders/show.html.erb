@@ -13,12 +13,12 @@
         </tr>
         <tr>
           <td class="table-secondary">支払方法</td>
-          <td></td>
+          <td><%= @order.payment_method %></td>
         </tr>
         <tr>
           <td class="table-secondary">ステータス</td>
           <td>
-            <% if @customer.is_deleted !=false %>
+            <% if @customer.is_deleted == false %>
               <p class="text-success">有効</p>
             <% else  %>
             　<p class="text-secondary">無効</p>

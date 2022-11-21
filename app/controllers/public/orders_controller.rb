@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = CartItem.where(customer_id: current_customer.id)
-    
+
     @order = Order.new(order_params)
     if params[:order][:address_id] == "0"
       @order.postal_code= current_customer.postal_code
@@ -40,7 +40,8 @@ class Public::OrdersController < ApplicationController
 
   def show
     @customer = current_customer
-    @cart_items = CartItem.all
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @order = Order.where(customer_id: current_customer.id)
   end
 
   private
