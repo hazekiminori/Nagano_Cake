@@ -5,10 +5,20 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
-    @order = Order.new(order_params)
-    @order.save
     redirect_to confirm_path
+    
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    @cart_items = current_customer.cart_items.all
+     @cart_items.each do |cart_item|
+        @order_details = @order.order_details.new
+        @order_details.item_id = cart_item.item.id
+        @order_details.name = cart_item.item.name
+        @order_details.price = cart_item.item.price
+        @order_details.amount = cart_item.amount
+        @order_details.save
+　　　　 current_customer.cart_items.destroy_all
+     end
   end
 
   def confirm
@@ -32,6 +42,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def thanks
+    # current_customer.cart_items.destroy_all
   end
 
   def index

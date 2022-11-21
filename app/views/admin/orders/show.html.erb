@@ -1,8 +1,5 @@
 <div class="container">
 <h1>注文履歴詳細</h1>
-</div>
-
-<div class="container">
     <table>
       <thead>
         <tr>
@@ -26,11 +23,23 @@
 
     <table class="table">
       <thead class="thead-secondary">
-        <th>商品名</th>
-        <th>単価（税込）</th>
-        <th>数量</th>
-        <th>小計</th>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
       </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.with_tax_price %></td>
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.subtotal %></td>
+        </tr>
+      </tbody>
+        <% end %>
     </table>
 
     <h4><strong>商品合計</strong></h4>
@@ -39,4 +48,5 @@
     <h4>800円</h4>
     <h4><strong>請求金額合計</strong></h4>
   </div>
-
+  
+</div>
