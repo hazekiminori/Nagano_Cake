@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_032857) do
     t.integer "total_payment"
     t.integer "payment_method"
     t.integer "order_status"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
