@@ -56,14 +56,14 @@ class Public::OrdersController < ApplicationController
 
   def show
     @customer = current_customer
-    @order = Order.where(customer_id: current_customer.id)
+    @order = Order.new(order_params)
     @order_details = OrderDetail.where(customer_id: current_customer.id)
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :created_at)
   end
 
 end
