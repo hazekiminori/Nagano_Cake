@@ -45,12 +45,10 @@ Rails.application.routes.draw do
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items
 
-  resource :orders, only: [:new, :show]
-  patch '/orders' => 'orders#create'
-  get '/orders' => 'orders#index'
   get '/orders/thanks' => 'orders#thanks', as:'thanks'
   post '/orders/confirm' => 'orders#confirm', as:'confirm'
-
+  resources :orders, only: [:new, :show, :index, :create]
+ 
   post '/addresses' => 'addresses#create'
   get '/addresses' => 'addresses#index'
   get '/addresses/:id/edit' => 'addresses#edit'

@@ -13,7 +13,7 @@
         </tr>
         <tr>
           <td class="table-secondary">支払方法</td>
-          <td><%= @order.payment_method %></td>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
       </tbody>
     </table>
@@ -31,7 +31,7 @@
         </tr>
         <tr>
           <td class="table-secondary">ご請求額</td>
-          <td><%= @order_details.price*@order_details.amount %></td>
+          <td><%= @total+800 %></td>
         </tr>
       </tbody>
     </table>
@@ -47,12 +47,12 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_details.each do |order_detail| %>
+        <% @order.order_details.each do |order_detail| %>
         <tr>
-          <td><%= order_detail.name %></td>
-          <td><%= order_detail.price %></td>
+          <td><%= order_detail.item.name %></td>
+          <td><%= (order_detail.price*1.1).floor %></td>
           <td><%= order_detail.amount %></td>
-          <td><%= order_detail.subtotal %></td>
+          <td><%= (order_detail.price*1.1).floor*order_detail.amount %></td>
         </tr>
         <% end %>
       </tbody>

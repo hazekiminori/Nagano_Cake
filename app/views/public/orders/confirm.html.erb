@@ -23,7 +23,7 @@
 </tbody>
 </table>
 
-<%= form_with model: @order, url: thanks_path, method: :get do |f| %>
+<%= form_with model: @order, url: orders_path, method: :post do |f| %>
 <table class="table">
   <tbody>
     <tr>
@@ -33,11 +33,11 @@
     <tr>
       <td>商品合計</td>
        <td><%= @total %></td>
-       <%= f.hidden_field :total_payment, value: @total %>
     </tr>
     <tr>
       <td>請求金額</td>
       <td><%= @total+800 %></td>
+      <%= f.hidden_field :total_payment, value: @total+800 %>
     </tr>
   </tbody>
 </table>
