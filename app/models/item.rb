@@ -4,10 +4,10 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_details, dependent: :destroy
   #belongs_to :genre
-  varidates :name, presence: true
-  varidates :introduction, presence: true
+  validates :name, presence: true
+  validates :introduction, presence: true
   validates :introduction, length: { maximum: 200 }
-  varidates :price, presence: true
+  validates :price, presence: true
 
   def with_tax_price
     (price*1.1).floor
