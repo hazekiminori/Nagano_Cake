@@ -1,24 +1,52 @@
-  <h1><mark>商品新規登録</mark></h1>
-
-    <div class="container">
+<div class="container mt-3">
+  <div class="row mb-3">
+    <h3>商品新規登録</h3>
+  </div>
     <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
-      <h4>商品画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-      <h4>商品名</h4>
-      <%= f.text_field :name %>
-      <h4>商品説明</h4>
-      <%= f.text_area :introduction %>
-      <h4>税抜価格</h4>
-      <%= f.number_field :price %>
-
-      <h4>販売ステータス</h4>
+    <div class="row mb-3">
+      <div class="col-2">
+        <h6>商品画像</h6>
+      </div>
+      <div class="col-8">
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+    </div>
+     <div class="row mb-3">
+      <div class="col-2">
+        <h6>商品名</h6>
+      </div>
+      <div class="col-8">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+     <div class="row mb-3">
+      <div class="col-2">
+        <h6>商品説明</h6>
+      </div>
+      <div class="col-8">
+       <%= f.text_area :introduction %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-2">
+        <h6>税抜価格</h6>
+      </div>
+      <div class="col-8">
+       <%= f.number_field :price %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-3">
+        <h6>販売ステータス</h6>
+      </div>
+      <div class="col-8">
       <%= f.radio_button :is_active, "true" %>
       <%= f.label :is_active, "販売中", value: true %>
       <%= f.radio_button :is_active, "false" %>
       <%= f.label :is_active, "販売停止中", value: false %>
-
+      </div>
+    </div> 
     <%= f.submit "新規登録", class:"btn btn-success" %>
-
     <% end %>
-
     </div>
+</div>
