@@ -10,7 +10,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    my_page_path
+    root_path
   end
 
   # GET /resource/sign_in
@@ -41,11 +41,8 @@ class Public::SessionsController < Devise::SessionsController
     return if !@customer
 
     if @customer.valid_password?(params[:customer][:password])
-      
-    elsif @customer.is_deleted && !false
+      @customer.is_deleted && !false
       redirect_to new_customer_registration_path
-    else
-      render :create
     end
    end
 

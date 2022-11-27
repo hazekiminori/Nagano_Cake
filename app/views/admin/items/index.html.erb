@@ -1,8 +1,10 @@
- <div class="container">
+ <div class="container mt-3">
   <h1>商品一覧</h1>
-  <%= link_to "新規商品登録", new_admin_items_path %>
+  <%= link_to new_admin_items_path do %>
+    <i class="fa-solid fa-circle-plus fa-2x"></i>
+  <% end %>
  </div>
-  <div class="container">
+  <div class="container mt-3">
     <table class= "table">
       <thead class= "thead-light">
         <tr>
@@ -27,6 +29,7 @@
           </td>
         </tr>
         <% end %>
+        <%= paginate @items %>
       </tbody>
     </table>
   </div>
