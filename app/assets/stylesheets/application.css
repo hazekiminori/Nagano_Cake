@@ -12,6 +12,10 @@ footer {
   border-color: #031de2;
 }
 
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
