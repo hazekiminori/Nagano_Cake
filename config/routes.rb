@@ -44,11 +44,11 @@ Rails.application.routes.draw do
   patch '/customers/withdrawal' => 'customers#withdrawal', as:'withdrawal'
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   resources :cart_items
-
-  get '/orders/thanks' => 'orders#thanks', as:'thanks'
-  post '/orders/confirm' => 'orders#confirm', as:'confirm'
+  
   resources :orders, only: [:new, :show, :index, :create]
- 
+  post '/orders/confirm' => 'orders#confirm', as:'confirm'
+  get '/orders/thanks' => 'orders#thanks', as:'thanks'
+
   post '/addresses' => 'addresses#create'
   get '/addresses' => 'addresses#index'
   get '/addresses/:id/edit' => 'addresses#edit'

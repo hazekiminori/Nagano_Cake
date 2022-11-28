@@ -19,7 +19,6 @@ class Public::OrdersController < ApplicationController
          end
       end
           redirect_to thanks_path
-
   end
 
   def confirm
@@ -47,9 +46,6 @@ class Public::OrdersController < ApplicationController
       end
   end
 
-  def thanks
-  end
-
   def index
     @orders = current_customer.orders
   end
@@ -60,6 +56,9 @@ class Public::OrdersController < ApplicationController
       @order.order_details.each do |order_detail|
         @total += (order_detail.price*1.1).floor*order_detail.amount
       end
+  end
+  
+  def thanks
   end
 
   private
